@@ -1,0 +1,246 @@
+## HTML5
+
+注重网页的结构.关注标签的功能作用
+
+## meta
+
+描述网页元数据--给浏览器看,提供网页的基本信息和属性供浏览器查找罗渲染
+
+### charset
+
+描述网页的编码格式:utf-8(应用最好),gbk,
+
+### name,context
+
+name设定属性,context设定属性内容.name="keywords/description/..."
+
+### keywords,context
+
+keywords定义一个网页的关键字,context描述网页的关键字,可描述多个关键字
+
+```HTML
+<meta name="keywords" content="Bilibili,哔哩哔哩,哔哩哔哩动画,哔哩哔哩弹幕网,弹幕视频,B站,弹幕,字幕,AMV,MAD,MTV,ANIME,动漫,动漫音乐,游戏,游戏解说,二次元,游戏视频,ACG,galgame,动画,番组,新番,初音,洛天依,vocaloid,日本动漫,国产动漫,手机游戏,网络游戏,电子竞技,ACG燃曲,ACG神曲,追新番,新番动漫,新番吐槽,巡音,镜音双子,千本樱,初音MIKU,舞蹈MMD,MIKUMIKUDANCE,洛天依原创曲,洛天依翻唱曲,洛天依投食歌,洛天依MMD,vocaloid家族,OST,BGM,动漫歌曲,日本动漫音乐,宫崎骏动漫音乐,动漫音乐推荐,燃系mad,治愈系mad,MAD MOVIE,MAD高燃">
+```
+
+### description,context
+
+description属性定义网页的简介,context描述网页的简介信息
+
+```html
+<meta name="description" content="bilibili是国内知名的视频弹幕网站，这里有及时的动漫新番，活跃的ACG氛围，有创意的Up主。大家可以在这里找到许多欢乐。">
+```
+
+## hgroup/
+
+将相关的<h>放到一块
+
+```html
+<hgroup>
+    <h1>Calculus I</h1>
+    <h2>Fundamentals</h2>
+</hgroup>
+```
+
+![](F:\新建文件夹\学习\前端\HTML\hgroup.png)
+
+## 语义标签
+
+### em
+
+<em>表明语调</em>
+
+### strong
+
+<strong>强调</strong>
+
+### blockquote
+
+<blockquote>表明语句的引用的格式</blockquote>	
+### q
+
+<q>引用短语,效果类似双引号</q>
+
+## 块标签
+
+### header/
+
+表示网页中块的头部
+
+### main/
+
+表示网页主体部分,一个网页唯一
+
+### footer/
+
+网页一块部分的底部
+
+### nav/
+
+网页导航,比如导航栏
+
+### aside/
+
+和主体相关的侧边栏区域
+
+### article/
+
+一个文章区域
+
+### section/
+
+单独表示一个其他区域
+
+### **div/**
+
+开一个块区域
+
+### **span/**
+
+开一个行区域
+
+## 列表
+
+### **ul**
+
+无序列表,li表示列表项
+
+```html
+<ul>
+    <li>结构</li>
+    <li>表现</li>
+    <li>行为</li>
+</ul>
+```
+
+
+
+### ol
+
+有序列表,列表前会有序号
+
+<ol>
+    <li>结构</li>
+    <li>表现</li>
+    <li>行为</li>
+</ol>
+
+### dl
+
+定义列表内容,dt:定义内容;dd对内容解释
+
+```HTML
+<dl>
+    <dt>结构</dt>
+    <dd>网页的结构用来划分各个区域的功能</dd>
+</dl>
+```
+
+![](F:\新建文件夹\学习\前端\HTML\list.png)
+
+## 内联框架
+
+### iframe/
+
+在网页中引入另一个网页
+
+src:引入网页的路径
+
+width,height:控制引入网页的窗口大小(不会等比缩放)
+
+frameborder:引入网页窗口是否有边框
+
+## audio/  video/
+
+### autoplay
+
+控制自动播放
+
+### control
+
+定义用户是否可以控制.只有当control时用户可见
+
+### loop
+
+控制音频是否循环播放
+
+格式2:引入多个源文件防止不兼容
+
+```html
+<audio control>浏览器不支持,请升级浏览器
+    <source src=".mp3">
+    <source src=".ogg">
+    <embed src=" .mp3" type="audio/mp3" width="300" height="100"><!--IE8支持的方式-->
+</audio>
+```
+
+## 表格
+
+```html
+使用<table></table>声明表格
+<tr>表示一行
+    <td></td>表示一行中的一格 属性colspan=n合并横向n个单元格;rowspan合并纵向单元格
+</tr>
+
+```
+
+### 长表格
+
+```html
+<table>
+    <thead></thead> 中可用<th></th>代替<td></td>
+    <tbody></tbody>
+    <tfoot></tfoot>
+</table>
+如果表格中无tbody而直接使用tr,浏览器会自动创建tbody将tr放入
+```
+
+样式:
+
+**表格属于块元素**	
+
+table{
+
+border-spacing : 指定边框之间距离   
+
+border-collapse: collapse; 设置边框合并
+
+}
+
+td{
+
+vertical-align: middle;设置元素垂直方向
+
+text-align	设置元素水平
+
+}
+
+## 表单
+
+用于提交数据;	将本地数据提交给远程服务器
+
+```html
+//声明一个表单	//传送给目标地市必须设定name
+<form action="提交的目的地址" method="get/发送方式">	
+    //autocomplete="off" 表单不自动记录之前填过的内容
+    文本框<input type="text" name="" value="内容">	
+    密码框<input type="password" name="" id="">
+    单选框组<input type="radio" name="name" value="value1">	必须要有相同的name
+    		<input type="radio" name="name"	value="value2">
+    多选框组<input type="checkbox" name=""  value="">
+    		<input type="checkbox" name=""  value="">
+    下拉框<select name="" id="" >
+            <option value="">value1</option>
+        </select>
+    	<select name="" id="" >
+            <option value="">value2 </option>
+        </select>
+   		 <select name="" id="" >
+       		 <option value="">value3</option>
+    	</select>
+    按钮<input type="button" value="">
+    重置按钮<input type="reset" value="">
+    单独按钮<button type=""></button>
+    
+</form>
+```
+
